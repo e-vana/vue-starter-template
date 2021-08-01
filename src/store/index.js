@@ -5,11 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isLoading: false,
   },
   mutations: {
+    SET_LOADING: (state) => {
+      state.isLoading = !state.isLoading;
+    }
   },
   actions: {
+    setLoading: (context) => {
+      context.commit('SET_LOADING')
+    }
   },
-  modules: {
+  getters: {
+    getLoading: (state) => {
+      return state.isLoading;
+    }
   }
 })
